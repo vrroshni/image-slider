@@ -30,7 +30,6 @@ const Header = () => {
                         {links.map(({ link, name }) => (
                             <li key={link} className='px-4 cursor-pointer  capitalize py-3 text-2xl hover:scale-105 duration-200 hover:text-brandcolor'><a onClick={() => setNav(false)} href={link}>{name}</a></li>
                         ))}
-                        <li className='px-4 cursor-pointer capitalize py-6 text-2xl hover:scale-105 duration-200 hover:text-brandcolor'><a onClick={() => setNav(false)} href={"#ContactUs"} >Lets Talk</a></li>
                     </ul>
                 </div>
                 }

@@ -2,11 +2,23 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
+import { Toaster } from 'react-hot-toast';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <div className="bg-[#fbe2e3]  absolute top-[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] "></div>
     <div className="bg-[#dbd7fb] absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] "></div>
     <App />
-  </React.StrictMode>,
+    <Toaster
+      toastOptions={{
+        className: 'text-base',
+        // style: {
+        //   border: '1px solid #713200',
+        //   margin:"0px",
+        //   paddingLeft: '2px',
+        //   paddingRight: '2px',
+        //   color: '#713200',
+        // },
+      }}
+    />  </React.StrictMode>,
 )

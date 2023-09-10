@@ -1,6 +1,7 @@
 import React from "react";
 
 const Button = ({
+    type = "button",
     label,
     onClick,
     disabled,
@@ -12,6 +13,7 @@ const Button = ({
 }) => {
     return (
         <button
+            type={type}
             disabled={disabled}
             onClick={onClick}
             className={`
@@ -37,7 +39,6 @@ const Button = ({
     `}
         >
             {label}
-            {Icon && Icon}
         </button>
     );
 };
