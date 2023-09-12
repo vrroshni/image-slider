@@ -7,7 +7,6 @@ const Button = ({
     disabled,
     outline,
     small,
-    icon: Icon,
     classnames,
     paddingx
 }) => {

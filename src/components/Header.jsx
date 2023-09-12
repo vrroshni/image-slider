@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { links } from '../utils/data'
-import Button from './buttons/Buttons'
 import { FaBars, FaTimes } from 'react-icons/fa'
-import { FiArrowUpRight } from 'react-icons/fi'
+
 
 
 

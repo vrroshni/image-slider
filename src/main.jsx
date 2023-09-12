@@ -12,13 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Toaster
       toastOptions={{
         className: 'text-base',
-        // style: {
-        //   border: '1px solid #713200',
-        //   margin:"0px",
-        //   paddingLeft: '2px',
-        //   paddingRight: '2px',
-        //   color: '#713200',
-        // },
       }}
-    />  </React.StrictMode>,
+    />
+  </React.StrictMode>,
 )

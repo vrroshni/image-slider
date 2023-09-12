@@ -11,6 +11,8 @@ import toast from 'react-hot-toast';
 
 
 const CustomizableSlider = () => {
+
+    
     const [final, setFinalValue] = useState({ parallax: 1.2, slideCount: media.length });
     const [isloading, setIsLoading] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
@@ -111,7 +113,6 @@ const CustomizableSlider = () => {
                 body={bodyContent}
 
             />
-
 
         </>
 

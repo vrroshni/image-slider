@@ -12,7 +12,11 @@ const Heading = ({ className, text }) => {
                 </span>
 
             </h1>
-        </div>)
+        </div>
+        )
 }
 
 export default Heading
+
+
+                            
