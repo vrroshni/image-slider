@@ -9,6 +9,8 @@ function App() {
     <>
       <Header />
       <PrallaxEffectLayer/>
+      
+      {/* image slider */}
       <CustomizableSlider/>
     </>
   )

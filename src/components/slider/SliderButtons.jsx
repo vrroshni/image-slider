@@ -1,6 +1,6 @@
 import React from "react";
 
-
+//buttons for image slider
 export const DotButton = ({ selected, onClick }) => (
   <button
     className={`embla__dot ${selected ? "is-selected" : ""}`}

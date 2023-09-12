@@ -4,6 +4,12 @@ import { IoMdClose } from "react-icons/io";
 import Button from "../buttons/Buttons";
 import Heading from "../Heading/Heading";
 
+
+/**
+ * Modal Component
+ * provides a modal dialog for displaying content, such as forms, messages, or alerts.
+ * */
+
 const Modal = ({
   isOpen,
   title,
@@ -16,7 +22,6 @@ const Modal = ({
   const [showModal, setShowModal] = useState(isOpen);
 
   const handleClose = useCallback(() => {
-    console.log("clickeddddddddddd")
     if (disabled) {
       return;
     }

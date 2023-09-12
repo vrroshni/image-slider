@@ -1,8 +1,21 @@
-# React + Vite
+# UI Machine Task
+## Demo link:
+Access my site at [https://image-slider-red.vercel.app/](https://image-slider-red.vercel.app/)
+## About The App
+This repository contains the code for the Image Slider with parallax effect Machine Task as part of frontend Developer role  in  Arab Industries. The goal of this task is to create a responsive  user interface and image slider using React.js that accurately catches the attention of the users.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Technologies
+I used `html`, `tailwindcss`,  `javascript`, `react`, `vite`.
+This project was bootstrapped with [npm create vite@latest](https://vitejs.dev/guide/).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Setup
+- download or clone the repository
+clone this repo with this link `https://github.com/vrroshni/image-slider.git`
+
+- run `npm install`
+- run `npm run dev`
+
+
+> 

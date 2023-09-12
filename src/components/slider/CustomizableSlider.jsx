@@ -8,7 +8,10 @@ import Input from '../inputs/Input';
 import { CustomizingValidations } from '../../utils/formValidation';
 import toast from 'react-hot-toast';
 
-
+/*
+This component allows users to customize the ImageSlider component with
+  a variable number of slides and parallax effect intensity.
+*/
 
 const CustomizableSlider = () => {
 
@@ -16,12 +19,16 @@ const CustomizableSlider = () => {
     const [isloading, setIsLoading] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
+
+    // React Hook Form configuration
     const { register, handleSubmit, reset, formState: {
         errors,
     } } = useForm({
         mode: "onChange"
     })
 
+
+    // Handles form submission
     const onSubmit = (data) => {
         setIsLoading(true);
         const slides = +data.slides;
@@ -33,6 +40,7 @@ const CustomizableSlider = () => {
             return;
         }
 
+        // Update the customization values
         setFinalValue({
             parallax: parseFloat(parallax),
             slideCount: parseInt(slides, 10)
@@ -55,10 +63,11 @@ const CustomizableSlider = () => {
     }
 
 
-
+    // Modal content for customization form
     const bodyContent = (
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className="flex flex-col gap-4">
+                {/* Input field for the number of slides */}
                 <Input id="slides"
                     Validations={CustomizingValidations.slides}
                     label={"Number of Slides"}
@@ -68,7 +77,7 @@ const CustomizableSlider = () => {
                     errors={errors}
                     value={final.slideCount}
                 />
-
+                {/* Input field for parallax effect intensity */}
                 <Input id="parallax"
                     Validations={CustomizingValidations.parallax}
                     label='Parallax Effect'
@@ -79,6 +88,8 @@ const CustomizableSlider = () => {
                     value={final.parallax}
                 />
             </div>
+
+     
             <div className="flex items-center justify-center gap-4 mt-3">
                 <hr />
                 <div className='flex items-center justify-center mt-4'>
@@ -96,13 +107,19 @@ const CustomizableSlider = () => {
     return (
 
         <div className='min-h-full py-44 bg-gray-800' name="slider" >
+
+            {/* Render the ImageSlider component with customized parallax and slide count */}
             <ImageSlider parallax_factor={final.parallax} slideCount={final.slideCount} />
+
+             {/* to open the customization modal */}
             <div className='flex items-center justify-center mt-4'>
                 <div className='w-40'>
                     <Button label={"Customize slider"} onClick={onOpen} />
                 </div>
             </div>
-          
+
+
+           {/* Modal for customization */}
             <Modal
                 disabled={isloading}
                 isOpen={isOpen}

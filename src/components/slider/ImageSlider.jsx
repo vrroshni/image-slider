@@ -3,21 +3,35 @@ import { DotButton, NextButton, PrevButton } from './SliderButtons';
 import { mediaByIndex } from '../../utils/data';
 import useEmblaCarousel from 'embla-carousel-react';
 
-
+/**
+ * ImageSlider Component
+ *
+ * The ImageSlider component displays a carousel of images with a parallax effect.
+ *
+ * @param {number} parallax_factor - The intensity of the parallax effect applied to the images.
+ * @param {number} slideCount - The number of slides (images) to display in the carousel.
+ */
 
 const ImageSlider = ({ parallax_factor, slideCount }) => {
+
+    // Embla Carousel hooks
     const [viewportRef, embla] = useEmblaCarousel({
         loop: false,
         dragFree: true
     });
 
+
+    // Array of slide indices
     const slides = Array.from(Array(slideCount).keys());
     const [selectedIndex, setSelectedIndex] = useState(0);
-    const [scrollSnaps, setScrollSnaps] = useState([]);  
+    const [scrollSnaps, setScrollSnaps] = useState([]);
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
     const [parallaxValues, setParallaxValues] = useState([]);
 
+
+
+    //  Callback to handle slide selection.
     const onSelect = useCallback(() => {
         if (!embla) return;
         setSelectedIndex(embla.selectedScrollSnap());
@@ -26,11 +40,20 @@ const ImageSlider = ({ parallax_factor, slideCount }) => {
     }, [embla]);
 
 
+
+    //  Function to scroll to the previous slide,next slide
     const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
     const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
+
+
+    // Function to scroll to a specific slide by index
     const scrollTo = useCallback((index) => embla && embla.scrollTo(index), [
         embla
-      ]);
+    ]);
+
+
+
+    //   Callback to update parallax effect values based on scroll position.
     const onScroll = useCallback(() => {
         if (!embla) return;
 
@@ -57,6 +80,9 @@ const ImageSlider = ({ parallax_factor, slideCount }) => {
         setSelectedIndex(embla.selectedScrollSnap());
     }, [embla, setParallaxValues]);
 
+
+
+    // Effect to set up Embla Carousel and event listeners
     useEffect(() => {
         if (!embla) return;
         onSelect();
@@ -73,6 +99,7 @@ const ImageSlider = ({ parallax_factor, slideCount }) => {
             <div className="embla mt-12">
                 <div className="embla__viewport" ref={viewportRef}>
                     <div className="embla__container">
+                        {/* Render slides with parallax effect */}
                         {slides.map((index) => (
                             <div className="embla__slide" key={index}>
                                 <div className="embla__slide__inner">
@@ -91,9 +118,14 @@ const ImageSlider = ({ parallax_factor, slideCount }) => {
                         ))}
                     </div>
                 </div>
+
+                {/* Previous and Next navigation buttons */}
                 <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
                 <NextButton onClick={scrollNext} enabled={nextBtnEnabled} />
             </div>
+
+
+            {/* Slide navigation dots */}
             <div className="embla__dots">
                 {scrollSnaps.map((_, index) => (
                     <DotButton

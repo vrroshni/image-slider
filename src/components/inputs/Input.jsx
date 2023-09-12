@@ -1,4 +1,9 @@
-
+/**
+ * Input Component
+ *
+ * The Input component is used for rendering form input fields.
+ * 
+ */
 const Input = ({
     errors,
     id,
