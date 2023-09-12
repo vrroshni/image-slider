@@ -2,17 +2,17 @@ export const links = [
     {
         id: 1,
         name: 'Image Slider',
-        link: '/'
+        link: 'https://image-slider-red.vercel.app/'
     },
     {
         id: 2,
         name: 'D3 Project',
-        link: '/D3 Project'
+        link: 'https://data-visualization-xi.vercel.app/'
     },
     {
         id: 3,
         name: 'User Interface',
-        link: '/User Interface'
+        link: 'https://user-interface-d285p410d-vrroshni.vercel.app/'
     },
 
 ]

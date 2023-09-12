@@ -12,12 +12,11 @@ import toast from 'react-hot-toast';
 
 const CustomizableSlider = () => {
 
-    
     const [final, setFinalValue] = useState({ parallax: 1.2, slideCount: media.length });
     const [isloading, setIsLoading] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
-    const { register, handleSubmit, formState: {
+    const { register, handleSubmit, reset, formState: {
         errors,
     } } = useForm({
         mode: "onChange"
@@ -25,27 +24,25 @@ const CustomizableSlider = () => {
 
     const onSubmit = (data) => {
         setIsLoading(true);
-        console.log('Data', data);
-        
         const slides = +data.slides;
         const parallax = +data.parallax;
-        
-        if (slides < 0 || slides > media.length || parallax < 0.1 || parallax > 3) {
-          toast.error("Enter valid values for Slides and Parallax Effect");
-          setIsLoading(false);
-          return;
+
+        if (slides <= 2 || slides > media.length || parallax < 0.1 || parallax > 3) {
+            toast.error("Enter valid values for Slides and Parallax Effect");
+            setIsLoading(false);
+            return;
         }
-      
+
         setFinalValue({
-          parallax: parseFloat(parallax),
-          slideCount: parseInt(slides, 10)
+            parallax: parseFloat(parallax),
+            slideCount: parseInt(slides, 10)
         });
-      
+
         setIsLoading(false);
         toast.success("Customization is successful");
         onClose();
-      };
-      
+    };
+
 
 
     const onOpen = () => {
@@ -53,6 +50,7 @@ const CustomizableSlider = () => {
     }
 
     const onClose = () => {
+        reset()
         setIsOpen(false)
     }
 
@@ -66,7 +64,7 @@ const CustomizableSlider = () => {
                     label={"Number of Slides"}
                     disabled={isloading}
                     register={register}
-                    placeholder={`Number of Slides(Max of ${media.length})`}
+                    placeholder={`Number of Slides(Max of ${media.length}) & Min of 3`}
                     errors={errors}
                     value={final.slideCount}
                 />
@@ -97,13 +95,14 @@ const CustomizableSlider = () => {
 
     return (
 
-        <>
+        <div className='min-h-full py-44 bg-gray-800' name="slider" >
             <ImageSlider parallax_factor={final.parallax} slideCount={final.slideCount} />
             <div className='flex items-center justify-center mt-4'>
                 <div className='w-40'>
                     <Button label={"Customize slider"} onClick={onOpen} />
                 </div>
             </div>
+          
             <Modal
                 disabled={isloading}
                 isOpen={isOpen}
@@ -111,13 +110,9 @@ const CustomizableSlider = () => {
                 title='Customize Slider'
                 actionLabel='Continue'
                 body={bodyContent}
-
             />
 
-        </>
-
-
-
+        </div>
 
 
     )

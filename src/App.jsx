@@ -1,5 +1,5 @@
 import Header from './components/Header'
-import Home from './components/Home'
+import PrallaxEffectLayer from './components/PrallaxEffectLayer'
 import CustomizableSlider from './components/slider/CustomizableSlider'
 
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Header />
-      <Home/>
+      <PrallaxEffectLayer/>
       <CustomizableSlider/>
     </>
   )

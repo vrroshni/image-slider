@@ -24,9 +24,11 @@ const Button = ({
       rounded-lg
       border border-solid 
       transition
-      text-lg 
+      text-base 
+      cursor-pointer
       w-full
-      ${outline ? "bg-white" : "bg-brandcolor"}
+      hover:scale-105
+      ${outline ? "bg-white" : "bg-gradient-to-r from-fuchsia-700 to-purple-700 "}
       ${outline ? "border-black" : "border-brandcolor"}
       ${outline ? "text-black" : "text-white"}
       ${small ? "text-sm" : "text-md"}

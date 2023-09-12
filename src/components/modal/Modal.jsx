@@ -16,6 +16,7 @@ const Modal = ({
   const [showModal, setShowModal] = useState(isOpen);
 
   const handleClose = useCallback(() => {
+    console.log("clickeddddddddddd")
     if (disabled) {
       return;
     }
